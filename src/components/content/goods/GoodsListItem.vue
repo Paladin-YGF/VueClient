@@ -96,7 +96,7 @@ export default {
     .cavf::before {
         content: '';
         display: inline-block;
-        background: url('../../../assets/img/common/collect.svg') 0 0/14px 14px;
+            background: url(/img/collect.eb1f91fb.svg) 0 0/14px 20px;
         /* background-position: 0 15px; */
             width: 15px;
             height: 16px;
