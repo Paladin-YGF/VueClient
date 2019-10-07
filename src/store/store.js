@@ -5,9 +5,11 @@ import actions from './actions'
 import getters from './getters'
 
 Vue.use(Vuex)
-
+//数据持久化存储
+const cartList = JSON.parse(window.localStorage.getItem('cartList') || '[]')
+console.log(cartList)
 const state = {
-    cartList: []
+    cartList
 }
 const store = new Vuex.Store({
     state,

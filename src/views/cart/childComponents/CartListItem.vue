@@ -15,6 +15,7 @@
               <div class="bottom">
                 <span>￥{{item.price}}</span>
                 <span>x{{item.count}}</span>
+                <button @click="del(item.iid)">删除</button>
             </div>
         </div>
     </div>
@@ -40,6 +41,16 @@ export default {
     methods: {
         Checked() {
             this.item.checked = !this.item.checked
+            console.log(this.item)
+            window.localStorage.setItem('cartList', JSON.stringify(this.$store.state.cartList))
+        },
+        del(iid) {
+            const arrIndex = this.$store.getters.getCartList.findIndex(item => {
+                return item.iid.includes(iid)
+            })
+            this.$store.getters.getCartList.splice(arrIndex, 1)
+            // console.log(arrIndex,this.$store.getters.getCartList)
+            window.localStorage.setItem('cartList', JSON.stringify(this.$store.getters.getCartList))
         }
     },
     components: {
@@ -90,16 +101,25 @@ export default {
     }
     .CartListItem .right .bottom{
         display: flex;
+        text-align: center;
     }
     .CartListItem .right .bottom span {
         flex: 1;
-        text-align: left;
+        /* text-align: left; */
         color: red;
         font-weight: 800;
         justify-content: space-between；
     }
     .CartListItem .right .bottom span:last-child{ 
-        text-align: right;
+        
         margin-right: 15px;
+    }
+    button {
+        height: 30px;
+        margin: 10px 0 ;
+        border-radius: 10px;
+        text-align: center;
+        padding: 6px;
+        background: #fff;
     }
 </style>

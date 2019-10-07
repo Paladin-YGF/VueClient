@@ -144,9 +144,12 @@ export default {
             cartItem.iid = this.$route.params.iid
             cartItem.image = this.swiperList[0]
             cartItem.price = this.goods.realPrice
-            console.log(cartItem)
+            // console.log(cartItem)
             // this.$store.commit('addToCart', cartItem)
-            this.$store.dispatch('addToCart', cartItem)
+            this.$store.dispatch('addToCart', cartItem).then(res=>{
+        //   console.log(res)
+           this.$toast.show(res, 1200)
+        })
         }
     }
 }

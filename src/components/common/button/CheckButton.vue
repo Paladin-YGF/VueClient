@@ -9,8 +9,11 @@ export default {
     props:{
         checked: {
             type: Boolean,
-            default: true
+            default: false
         }
+    },
+    mounted() {
+        console.log(this.checked)
     }
 }
 </script>
@@ -18,7 +21,9 @@ export default {
 <style scoped>
 .check {
     text-align: center;
-    line-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .check img{
    background: #fff;

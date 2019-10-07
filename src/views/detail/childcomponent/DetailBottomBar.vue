@@ -28,6 +28,7 @@
       addToCart() {
         console.log(123)
         this.$emit('addToCart')
+        
       }
     }
 	}
